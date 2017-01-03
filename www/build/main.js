@@ -52866,7 +52866,7 @@ var AboutPage = (function () {
     }
     AboutPage = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
-            selector: 'page-about',template:/*ion-inline-start:"/Users/justin/Desktop/Pulse/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      About\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/justin/Desktop/Pulse/src/pages/about/about.html"*/
+            selector: 'page-about',template:/*ion-inline-start:"/Users/justin/Desktop/Pulse/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar id="navybary">\n    <ion-title>\n      About\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/justin/Desktop/Pulse/src/pages/about/about.html"*/
         }), 
         __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* NavController */]])
     ], AboutPage);
@@ -105460,27 +105460,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-/*
-  Generated class for the Profile page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 var ProfilePage = (function () {
     function ProfilePage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.categories = ['Hiking', 'Video Games', 'Marijuana', 'Gym', 'Surfing', 'Programming', 'Gambling', 'Food', 'Exploring', 'Extreme', 'Sailing', 'Party'];
     }
     ProfilePage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ProfilePage');
     };
+    ProfilePage.prototype.addPreference = function (things) {
+        this.categories.push(things);
+    };
+    ProfilePage.prototype.savePreferences = function () {
+        this.categories.forEach(function (pref) {
+            if (pref.checked) {
+                console.log(pref);
+            }
+        });
+    };
     ProfilePage = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"/Users/justin/Desktop/Pulse/src/pages/profile/profile.html"*/'<!--\n  Generated template for the Profile page.\n\n  See http://ionicframework.com/docs/v2/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>profile</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/justin/Desktop/Pulse/src/pages/profile/profile.html"*/
+            selector: 'page-profile',template:/*ion-inline-start:"/Users/justin/Desktop/Pulse/src/pages/profile/profile.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Profile</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <ion-list>\n    <ion-item>\n      <ion-label floating>What are you interested in?</ion-label>\n      <ion-input type="text" #preference> </ion-input>\n    </ion-item>\n  </ion-list>\n\n  <div id="saveProfileButton">\n    <button ion-button color="primary" outline (click)="addPreference(preference.value)">Add Preference</button>\n  </div>\n\n  <ion-list id="preferenceList">\n    <ion-item *ngFor=\'let pref of categories\'>\n      <ion-label>{{ pref }}</ion-label>\n      <ion-checkbox color="dark" checked="true"></ion-checkbox>\n    </ion-item>\n  </ion-list>\n\n  <div id="saveProfileButton">\n    <button ion-button color="success" outline (click)="savePreferences(userPreferences)">Save</button>\n  </div>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/justin/Desktop/Pulse/src/pages/profile/profile.html"*/
         }), 
-        __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* NavParams */]])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* NavController */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* NavController */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* NavParams */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* NavParams */]) === 'function' && _b) || Object])
     ], ProfilePage);
     return ProfilePage;
+    var _a, _b;
 }());
 //# sourceMappingURL=profile.js.map
 
