@@ -1,0 +1,84 @@
+<ion-header id="down">
+    <ion-toolbar id="beaconHeader">
+    <ion-title>
+       {{beacon.title}}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="this.dismiss()">
+        <span color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="down">
+
+    <ion-segment [(ngModel)]="beaconState" id="beaconNavbar">
+      <ion-segment-button  class="tabButton" value="rsvp" (click)="this.letsDigest()">
+        RSVP List
+      </ion-segment-button>
+      <ion-segment-button class="tabButton" value="info" (click)="this.letsDigest()">
+        Information
+      </ion-segment-button>
+      <ion-segment-button class="tabButton" value="chat" (click)="this.letsDigest()">
+        Chat
+      </ion-segment-button>
+    </ion-segment>
+
+<div [ngSwitch]="beaconState">
+    <div *ngSwitchCase="'rsvp'" id="rsvpList" padding>
+      <ion-list>
+        <ion-item *ngFor="let rsvp of rsvps">
+          <h2>
+            {{ rsvp.User.firstName}} {{rsvp.User.lastName}}
+          </h2>
+          <p>
+            {{ rsvp.details }}
+          </p>
+        </ion-item>
+      </ion-list>
+    
+    </div>
+
+    <div *ngSwitchCase="'info'" class="tabBody">    
+      <ion-card>
+          <ion-card-content>
+            <ion-card-title>
+              {{beacon.title}}
+            </ion-card-title>
+          <ion-item>
+            <p>
+              Details: {{beacon.details}}
+            </p>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      <button ion-button round (click)="rsvpLoader(beacon)">RSVP</button>
+      <button ion-button color="red" (click)="deleteBeacon(beacon)">Delete</button>  
+    </div>
+
+    <div *ngSwitchCase="'chat'" id="messageList" class="tabBody" padding>
+      <ion-card *ngFor="let chat of chats" id="messages">
+
+        <ion-card-header>
+          {{ chat.message }}
+        </ion-card-header>
+        <!--<ion-card-header>
+          {{ chat.author }}
+        </ion-card-header>-->
+        <ion-card-content>
+          <div>{{ chat.author }}</div>
+          <small id="messageDate">{{chat.date}}</small>
+        </ion-card-content>
+
+      </ion-card>
+
+
+      <div id="messageBuild">
+        <ion-input (keyup.enter)="sendMessage(chatInput)" [(ngModel)]="chatInput" placeholder="What's the word?"></ion-input>
+        <button ion-button (click)="sendMessage(chatInput)">Send</button>
+      </div>
+          
+    </div>    
+</div>
