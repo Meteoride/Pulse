@@ -1,0 +1,13 @@
+{
+  "name": "Pulse",
+  "app_id": "585f6f65",
+  "v2": true,
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://ec2-54-67-94-166.us-west-1.compute.amazonaws.com:8080",
+      "rejectUnauthorized": false
+    }
+  ]
+}

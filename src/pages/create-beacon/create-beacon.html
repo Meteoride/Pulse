@@ -1,0 +1,61 @@
+<ion-header id="navybary" class="down">
+
+  <ion-navbar>
+    <ion-title>Create</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <h1>Host Your Happening</h1>
+
+  <form [formGroup]="beaconForm" class="down">
+      <ion-item>
+        <ion-label floating>Event Name</ion-label>
+        <ion-input type="text" #eventName formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Details</ion-label>
+        <ion-input type="text" #details formControlName="details"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{this.addressType}}</ion-label>
+        <ion-checkbox color="success" checked="true" (click)="toggleLocationType()"></ion-checkbox>
+      </ion-item>
+      <ion-item *ngIf="!this.currentLocation">
+        <ion-label floating>Address</ion-label>
+        <ion-input type="text" #address formControlName="address"></ion-input>
+      </ion-item>
+  </form>
+
+
+<ion-list>
+  <ion-item>
+    <ion-label>Category</ion-label>
+    <ion-select [(ngModel)]="categoryChoice">
+      <ion-option value="Active">Active</ion-option>
+      <ion-option value="Learn">Learn</ion-option>
+      <ion-option value="Community">Community</ion-option>
+      <ion-option value="Music">Music</ion-option>
+      <ion-option value="Eat">Eat/Drink</ion-option>
+      <ion-option value="Travel">Travel</ion-option>
+      <ion-option value="Art">Art</ion-option>
+      <ion-option value="Games">Games</ion-option>
+      <ion-option value="Featured">Featured</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+
+
+
+
+
+  <div id="beaconButton">
+    <button ion-button color="primary" outline (click)="createBeacon(beaconForm.value)">Create Beacon</button>
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header id="navybary" class="down">
+
+  <ion-navbar>
+    <ion-title>My Beacons</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="down" padding>
+
+  <ion-list *ngFor="let beacon of beaconList">  
+
+    <ion-item>
+      <ion-icon name="{{beacon.icon}}" item-left></ion-icon>
+        <h3>{{ beacon.title }}</h3>
+        <p item-middle>{{ beacon.details }}</p>
+      <button ion-button color="red" (click)="deleteBeacon(beacon)" item-right>Delete</button>  
+
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

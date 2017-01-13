@@ -1,0 +1,14 @@
+
+<ion-content>
+  <div #map id="map"></div>
+  <ion-fab right bottom id="addBeanconButton" *ngIf="auth.authenticated()">
+    <button ion-fab color="#" (click)="addBeacon()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+  <ion-fab left bottom id="centerMap" *ngIf="auth.authenticated()">
+    <button ion-fab color="" (click)="centerMap()"><ion-icon name="locate"></ion-icon></button>
+  </ion-fab>
+</ion-content>
+<div class="load" *ngIf="!this.loaded">
+   <div class="dot"></div>
+   <div class="outline"><span>Please wait</span></div>
+</div>
