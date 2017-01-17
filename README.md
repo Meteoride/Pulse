@@ -22,7 +22,7 @@ Statistics show that social media is harming the overall happiness and mental we
 
 ## Authors
 
-- Randolf Mark Steadman - Product Owner
+- Randolph Mark Steadman - Product Owner
 - Justin Biele - Scrum Master
 - Jongsoo Yoon - Lead Developer
 
